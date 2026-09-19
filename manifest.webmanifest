@@ -1,0 +1,1 @@
+{"name":"Retro Radio","short_name":"Retro Radio","description":"Lecteur de radios Internet rétro","start_url":"./","scope":"./","display":"standalone","background_color":"#352c29","theme_color":"#ed1723","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
