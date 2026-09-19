@@ -5,6 +5,18 @@
 const $=id=>document.getElementById(id),audio=$('audio'),deck=$('deck');
 let stations=[],selected=null,index=-1,favorites=[],onlyFavorites=false;
 const APIS=['https://de1.api.radio-browser.info/json','https://nl1.api.radio-browser.info/json','https://at1.api.radio-browser.info/json'];
+const VERIFIED_STATIONS=[{
+ stationuuid:'verified-rfm80s-portugal',
+ name:'RFM 80s',
+ country:'Portugal',
+ countrycode:'PT',
+ language:'Portuguese',
+ tags:'80s,années 80,rfm,portugal,lisboa',
+ url:'https://27913.live.streamtheworld.com/GR80SRFM.mp3',
+ url_resolved:'https://27913.live.streamtheworld.com/GR80SRFM.mp3',
+ homepage:'https://rfm.pt/ouvir-emissao-80s-rfm',
+ favicon:'https://www.radio.fr/175/rfm80s.jpeg?version=d17d7afaf19345215984907e012e1f5f63b3857b'
+}];
 try{favorites=JSON.parse(localStorage.getItem('retro-radio-favorites')||'[]')}catch{}
 const setStatus=s=>$('status').textContent=s;
 const save=()=>{try{localStorage.setItem('retro-radio-favorites',JSON.stringify(favorites))}catch{}};
@@ -30,9 +42,13 @@ async function search(){
      const batches=await Promise.allSettled(requests.map(apiFetch));
      batches.forEach(x=>{if(x.status==='fulfilled')all.push(...x.value)});
    }
-   const seen=new Set();
-   stations=all.filter(s=>s.url_resolved||s.url).filter(s=>{const k=key(s);if(seen.has(k))return false;seen.add(k);return true});
    const nq=norm(q);
+   const verified=!q?VERIFIED_STATIONS:VERIFIED_STATIONS.filter(s=>{
+     const hay=norm([s.name,s.country,s.countrycode,s.language,s.tags].join(' '));
+     return hay.includes(nq)||nq.includes('rfm 80')||nq==='rfm'||nq==='80s'||nq==='80';
+   });
+   const seen=new Set();
+   stations=[...verified,...all].filter(s=>s.url_resolved||s.url).filter(s=>{const k=key(s);if(seen.has(k))return false;seen.add(k);return true});
    if(nq) stations.sort((a,b)=>{
      const an=norm(a.name),bn=norm(b.name),ac=norm(a.country),bc=norm(b.country);
      const score=x=>x===nq?100:x.startsWith(nq)?60:x.includes(nq)?30:0;
