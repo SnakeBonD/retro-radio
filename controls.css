@@ -1,0 +1,30 @@
+/* Coordinates measured on the 1200×800 and 720×1080 source photographs.
+   The image and all controls share the same aspect-ratio container. */
+.radio{width:min(100%,1200px)}
+.screen{background:linear-gradient(135deg,#4aff72,#40e560)}
+.hot{top:63.75%;width:9.67%;height:12%;padding:0;touch-action:manipulation}
+.fav{left:8.58%}.play{left:19%}.prev{left:29.42%}
+.next{left:39.83%}.stop{left:50.25%}.pause{left:60.67%}
+.volume{left:28.25%;top:81.25%;width:32.5%;height:5%;opacity:1;touch-action:none;user-select:none;cursor:ew-resize;outline-offset:3px}
+.volume{background:linear-gradient(#991b14,#b72c20,#8e1c16);border-radius:6px}
+.volume::before{content:"";position:absolute;inset:-10px 0}
+.volume-track{position:absolute;inset:26% 0;border-radius:20px;background:#111;box-shadow:inset 0 2px 4px #000;border:1px solid #777;pointer-events:none}
+.volume-knob{position:absolute;left:var(--volume,70%);top:50%;width:10%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:2px solid #aaa;background:conic-gradient(#eee,#777,#fff,#888,#eee);box-shadow:0 2px 4px #000;pointer-events:none}
+.volume-value{display:none;position:absolute;bottom:110%;left:var(--volume,70%);transform:translateX(-50%);white-space:nowrap;background:#092b12;color:#dcffe0;padding:3px 6px;border-radius:4px;font-size:12px;pointer-events:none}
+.volume:focus-visible{outline:2px solid white}.volume:focus-visible .volume-value,.volume.dragging .volume-value,.volume:hover .volume-value{display:block}
+.mute{left:67.4%;top:81.9%;width:3.3%;height:5%}
+.hot[aria-pressed=true]{box-shadow:inset 0 -3px #25ff50}
+.display .station{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0}
+.display .top,.display .meta,.display .status{flex-shrink:0}
+@media(max-width:700px){
+ .radio{width:min(100%,520px)}
+ .hot{top:71.2%;width:12.78%;height:9.82%}
+ .fav{left:8.33%}.play{left:22.36%}.prev{left:36.39%}
+ .next{left:50.42%}.stop{left:64.44%}.pause{left:78.47%}
+ .volume{left:28.47%;top:85.2%;width:36.25%;height:3.7%}
+ .volume-knob{width:13%}
+ .mute{left:69.8%;top:85.2%;width:5%;height:3.7%}
+ .screen{left:10.8%;top:17.8%;width:78.4%;height:22.5%}
+ .display{padding:1.8% 2.8%!important}
+ .display .searchrow input{font-size:16px}
+}
