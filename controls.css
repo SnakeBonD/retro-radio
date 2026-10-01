@@ -8,6 +8,11 @@ html,body{background-color:#7f7f7f}
 .hot{top:63.75%;width:9.67%;height:12%;padding:0;touch-action:manipulation}
 .fav{left:8.58%}.play{left:19%}.prev{left:29.42%}
 .next{left:39.83%}.stop{left:50.25%}.pause{left:60.67%}
+/* Cover the lamp baked into the photo, then draw its actual playback state. */
+.play::before{content:"";position:absolute;left:26%;width:48%;top:78%;height:23%;background:linear-gradient(#181a19,#161817);border-radius:4px;pointer-events:none}
+.play::after{content:"";position:absolute;left:40%;width:20%;top:88%;height:3%;min-height:1px;border-radius:3px;background:#444b46;box-shadow:0 1px 1px #080a09;pointer-events:none}
+.radio.playing .play{box-shadow:none}
+.playing .play::after{background:#caffcd;box-shadow:0 0 3px 2px #4cff69,0 0 8px 4px #16d63b}
 .volume{left:28.25%;top:81.25%;width:32.5%;height:5%;opacity:1;touch-action:none;user-select:none;cursor:ew-resize;outline-offset:3px}
 .volume{background:linear-gradient(#991b14,#b72c20,#8e1c16);border-radius:6px}
 .volume::before{content:"";position:absolute;inset:-10px 0}
@@ -25,6 +30,8 @@ html,body{background-color:#7f7f7f}
  .hot{top:71.2%;width:12.78%;height:9.82%}
  .fav{left:8.33%}.play{left:22.36%}.prev{left:36.39%}
  .next{left:50.42%}.stop{left:64.44%}.pause{left:78.47%}
+ .play::before{top:76%;height:23%}
+ .play::after{top:82.5%}
  .volume{left:28.47%;top:85.2%;width:36.25%;height:3.7%}
  .volume-knob{width:13%}
  .mute{left:69.8%;top:85.2%;width:5%;height:3.7%}

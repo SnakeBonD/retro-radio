@@ -2,6 +2,17 @@
 (() => {
  const control = document.getElementById('volume');
  const player = document.getElementById('audio');
+ const facade = document.getElementById('radio');
+ const playButton = document.getElementById('play');
+ function setPlaying(active) {
+  facade.classList.toggle('playing', active);
+  playButton.setAttribute('aria-pressed', String(active));
+ }
+ player.addEventListener('playing', () => setPlaying(!player.paused));
+ ['pause','ended','emptied','error','abort','loadstart','waiting'].forEach(type =>
+  player.addEventListener(type, () => setPlaying(false)));
+ document.getElementById('stop').addEventListener('click', () => setPlaying(false));
+ setPlaying(false);
  let pointer = null;
  function reflect() {
   const value = Math.round(player.volume * 100);
