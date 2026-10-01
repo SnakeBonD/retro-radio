@@ -26,6 +26,12 @@ html,body{background-color:#7f7f7f}
 .volume-knob{position:absolute;left:var(--volume,70%);top:50%;width:10%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:2px solid #aaa;background:conic-gradient(#eee,#777,#fff,#888,#eee);box-shadow:0 2px 4px #000;pointer-events:none}
 .volume-value{display:none;position:absolute;bottom:110%;left:var(--volume,70%);transform:translateX(-50%);white-space:nowrap;background:#092b12;color:#dcffe0;padding:3px 6px;border-radius:4px;font-size:12px;pointer-events:none}
 .volume:focus-visible{outline:2px solid white}.volume:focus-visible .volume-value,.volume.dragging .volume-value,.volume:hover .volume-value{display:block}
+.volume-panel{position:absolute;left:24.4%;top:79.4%;width:40.2%;height:8.6%;background:#a82019;border-radius:4px;z-index:7;pointer-events:none}
+.volume-panel svg{position:absolute;top:50%;transform:translateY(-50%);width:5%;height:40%;fill:none;stroke:#f5dfda;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.volume-panel .quiet{left:3%}.volume-panel .loud{right:3%}
+.volume{left:28.8%;width:31.4%;background:#a82019;outline:none}
+.volume:focus-visible{outline:none}
+.volume.keyboard-focus .volume-track{box-shadow:0 0 0 2px #f5dfda,inset 0 2px 4px #000}
 .mute{left:67.4%;top:81.9%;width:3.3%;height:5%}
 .hot[aria-pressed=true]{box-shadow:inset 0 -3px #25ff50}
 .display .station{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0}
@@ -42,6 +48,10 @@ html,body{background-color:#7f7f7f}
  .play::before{top:76%;height:23%}
  .play::after{top:82.5%}
  .volume{left:28.47%;top:85.2%;width:36.25%;height:3.7%}
+ .volume-panel{left:26.5%;top:83.3%;width:40.2%;height:6.8%}
+ .volume-panel svg{width:7%;height:35%;top:55%}
+ .volume-panel .quiet{left:2%}.volume-panel .loud{right:2%}
+ .volume{left:31%;width:31.1%}
  .volume-knob{width:13%}
  .mute{left:69.8%;top:85.2%;width:5%;height:3.7%}
  .screen{left:10.8%;top:17.8%;width:78.4%;height:22.5%}

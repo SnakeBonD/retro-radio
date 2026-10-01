@@ -34,6 +34,7 @@
  control.addEventListener('pointerdown', event => {
   if (!event.isPrimary || event.button !== 0) return;
   event.preventDefault();
+  control.classList.remove('keyboard-focus');
   pointer = event.pointerId;
   control.setPointerCapture(pointer);
   control.focus({preventScroll:true});
@@ -52,11 +53,13 @@
  }
  ['pointerup','pointercancel','lostpointercapture'].forEach(type => control.addEventListener(type, finish));
  control.addEventListener('keydown', event => {
+  control.classList.add('keyboard-focus');
   const value = player.volume * 100;
   const values = {ArrowRight:value+5,ArrowUp:value+5,ArrowLeft:value-5,ArrowDown:value-5,Home:0,End:100,PageUp:value+10,PageDown:value-10};
   if (!(event.key in values)) return;
   event.preventDefault();setVolume(values[event.key]);
  });
  player.addEventListener('volumechange', reflect);
+ control.addEventListener('blur', () => control.classList.remove('keyboard-focus'));
  reflect();
 })();
