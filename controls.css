@@ -1,6 +1,9 @@
 /* Coordinates measured on the 1200×800 and 720×1080 source photographs.
    The image and all controls share the same aspect-ratio container. */
 .radio{width:min(100%,1200px)}
+/* Keep the note outside the silhouette mask, in the opening below the handle. */
+.radio-wrap{position:relative;width:min(100%,1200px);margin:auto}
+.radio-wrap>.note{position:absolute;left:17%;top:12.4%;width:66%;height:4.5%;margin:0;display:flex;align-items:center;justify-content:center;font-size:clamp(7px,.85vw,11px);line-height:1.1;text-align:center}
 .version{position:absolute;left:41.2%;top:22.3%;font:400 clamp(6px,.75vw,9px)/1 Arial,sans-serif;color:#c5c5c5;white-space:nowrap;pointer-events:none}
 /* Cut out only the photographic backdrop, exposing the exact page gray. */
 html,body{background-color:#7f7f7f}
@@ -29,6 +32,8 @@ html,body{background-color:#7f7f7f}
 .display .top,.display .meta,.display .status{flex-shrink:0}
 @media(max-width:700px){
  .radio{width:min(100%,520px)}
+ .radio-wrap{width:min(100%,520px)}
+ .radio-wrap>.note{left:16%;top:6.25%;width:68%;height:3.2%;font-size:clamp(5px,1.6vw,8px)}
  .version{left:50%;top:13.1%;font-size:clamp(4px,1.15vw,6px)}
  .radio{-webkit-mask-image:url('radio-portrait-mask.svg');mask-image:url('radio-portrait-mask.svg')}
  .hot{top:71.2%;width:12.78%;height:9.82%}
