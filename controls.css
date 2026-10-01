@@ -1,6 +1,10 @@
 /* Coordinates measured on the 1200×800 and 720×1080 source photographs.
    The image and all controls share the same aspect-ratio container. */
 .radio{width:min(100%,1200px)}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom,0px)}
+main{width:100%;margin-top:auto;flex-shrink:0}
+/* Remove the empty strip below the photographed feet without moving hitboxes. */
+.radio-wrap{display:flow-root;overflow:hidden}.radio{margin-bottom:-3.25%}
 .radio{-webkit-user-select:none;user-select:none}
 .radio input{-webkit-user-select:text;user-select:text}
 /* Shared frame keeps the two photo layouts centered. */
@@ -41,6 +45,8 @@ html,body{background-color:#7f7f7f}
 @media(max-width:700px){
  .radio{width:min(100%,520px)}
  .radio-wrap{width:min(100%,520px)}
+ body{padding-bottom:env(safe-area-inset-bottom,0px)}
+ .radio{margin-bottom:-6.8%}
  .display>.note{font-size:clamp(5px,1.45vw,7px);margin-top:3px}
  .version{left:50%;top:13.1%;font-size:clamp(4px,1.15vw,6px)}
  .radio{-webkit-mask-image:url('radio-portrait-mask.svg');mask-image:url('radio-portrait-mask.svg')}
