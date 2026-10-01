@@ -1,6 +1,8 @@
 /* Coordinates measured on the 1200×800 and 720×1080 source photographs.
    The image and all controls share the same aspect-ratio container. */
 .radio{width:min(100%,1200px)}
+.radio{-webkit-user-select:none;user-select:none}
+.radio input{-webkit-user-select:text;user-select:text}
 /* Shared frame keeps the two photo layouts centered. */
 .radio-wrap{position:relative;width:min(100%,1200px);margin:auto}
 .display>.note{flex:0 0 auto;align-self:stretch;margin:5px 0 0;text-align:right;font:400 clamp(6px,.65vw,8px)/1.2 Arial,sans-serif;color:#174d25;text-shadow:none}
