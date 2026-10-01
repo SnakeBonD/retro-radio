@@ -6,6 +6,8 @@
 html,body{background-color:#7f7f7f}
 .radio{-webkit-mask:url('radio-landscape-mask.svg') center/100% 100% no-repeat;mask:url('radio-landscape-mask.svg') center/100% 100% no-repeat}
 .screen{background:linear-gradient(135deg,#4aff72,#40e560)}
+/* Cover the complete photographed LCD, including its right luminous edge. */
+@media(min-width:701px){.screen{left:9.2%;width:43%;}}
 .hot{top:63.75%;width:9.67%;height:12%;padding:0;touch-action:manipulation}
 .fav{left:8.58%}.play{left:19%}.prev{left:29.42%}
 .next{left:39.83%}.stop{left:50.25%}.pause{left:60.67%}
