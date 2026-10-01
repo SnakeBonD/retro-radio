@@ -34,7 +34,7 @@ html,body{background-color:#7f7f7f}
 .volume.keyboard-focus .volume-track{box-shadow:0 0 0 2px #f5dfda,inset 0 2px 4px #000}
 .mute{left:67.4%;top:81.9%;width:3.3%;height:5%}
 .hot[aria-pressed=true]{box-shadow:inset 0 -3px #25ff50}
-.display .station{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0}
+.display .station{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0;font-size:clamp(16px,1.9vw,26px);line-height:1;margin-top:.6%}
 .display .top,.display .meta,.display .status{flex-shrink:0}
 @media(max-width:700px){
  .radio{width:min(100%,520px)}
@@ -57,4 +57,7 @@ html,body{background-color:#7f7f7f}
  .screen{left:10.8%;top:17.8%;width:78.4%;height:22.5%}
  .display{padding:1.8% 2.8%!important}
  .display .searchrow input{font-size:16px}
+ .display .station{font-size:clamp(14px,4.2vw,20px)}
 }
+/* The footer stays in flow so scrolling stations never cover it. */
+.screen.display{padding-bottom:2px!important}
