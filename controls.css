@@ -1,6 +1,7 @@
 /* Coordinates measured on the 1200×800 and 720×1080 source photographs.
    The image and all controls share the same aspect-ratio container. */
 .radio{width:min(100%,1200px)}
+.version{position:absolute;left:41.2%;top:22.3%;font:400 clamp(6px,.75vw,9px)/1 Arial,sans-serif;color:#c5c5c5;white-space:nowrap;pointer-events:none}
 /* Cut out only the photographic backdrop, exposing the exact page gray. */
 html,body{background-color:#7f7f7f}
 .radio{-webkit-mask:url('radio-landscape-mask.svg') center/100% 100% no-repeat;mask:url('radio-landscape-mask.svg') center/100% 100% no-repeat}
@@ -26,6 +27,7 @@ html,body{background-color:#7f7f7f}
 .display .top,.display .meta,.display .status{flex-shrink:0}
 @media(max-width:700px){
  .radio{width:min(100%,520px)}
+ .version{left:50%;top:13.1%;font-size:clamp(4px,1.15vw,6px)}
  .radio{-webkit-mask-image:url('radio-portrait-mask.svg');mask-image:url('radio-portrait-mask.svg')}
  .hot{top:71.2%;width:12.78%;height:9.82%}
  .fav{left:8.33%}.play{left:22.36%}.prev{left:36.39%}
