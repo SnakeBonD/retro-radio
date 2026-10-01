@@ -69,3 +69,15 @@ html,body{background-color:#7f7f7f}
 }
 /* The footer stays in flow so scrolling stations never cover it. */
 .screen.display{padding-bottom:2px!important}
+
+/* Mobile LCD gains 243 source pixels; all other photo parts retain their scale. */
+@media(max-width:700px){
+ .radio{aspect-ratio:720/1323;background-image:url('radio-portrait-tall.svg');-webkit-mask:none;mask:none}
+ .version{top:10.69388%}
+ .screen{top:14.53061%;height:36.73469%}
+ .hot{top:76.48980%;height:8.01633%}
+ .volume{top:87.91837%;height:3.02041%}
+ .volume-panel{top:86.36735%;height:5.55102%}
+ .mute{top:87.91837%;height:3.02041%}
+ .display .searchrow{height:25px}
+}
